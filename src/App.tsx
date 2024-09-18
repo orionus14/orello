@@ -1,8 +1,11 @@
+import AddListButton from "./components/AddListButton/AddListButton";
+import './App.scss';
+
 function App() {
   return (
-    <div>
-
-    </div>
+    <>
+      <AddListButton text='Add New List' />
+    </>
   )
 }
 
