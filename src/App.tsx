@@ -1,10 +1,10 @@
-import AddListButton from "./components/AddListButton/AddListButton";
-import './App.scss';
+import ListsField from "./components/ListsField/ListsField"
+
 
 function App() {
   return (
     <>
-      <AddListButton text='Add New List' />
+      <ListsField />
     </>
   )
 }

@@ -1,3 +1,22 @@
 .add-list-btn {
+    margin: 40px 0 0 30px;
+    width: 240px;
+    padding: 8px;
+    border-radius: 12px;
+    background-color: $background-color-btn;
     color: $text-color;
+    font-size: 16px;
+    font-weight: 500;
+
+    &:hover {
+        background-color: lighten($background-color-btn, 5%);
+    }
+}
+
+.add-list-name {
+    width: 240px;
+    background-color: #fff;
+    margin: 40px 0 0 30px;
+    border-radius: 12px;
+    padding: 8px;
 }
