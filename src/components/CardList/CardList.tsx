@@ -1,9 +1,14 @@
 import React from 'react'
+import './CardList.scss'
 
-const CardList = () => {
+interface Header {
+  header: string
+}
+
+const CardList = ({header}:Header) => {
   return (
-    <div>
-      
+    <div className='card-list'>
+      {header}
     </div>
   )
 }

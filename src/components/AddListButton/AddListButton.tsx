@@ -1,22 +1,34 @@
 import { useState } from 'react';
 import './AddListButton.scss'
+import CardList from '../CardList/CardList';
 
-const AddListButton = () => {
+interface addNewList {
+  addNewList: (newCard: JSX.Element) => void;
+}
+
+const AddListButton = ({ addNewList }: addNewList) => {
   const [showInput, setShowInput] = useState<boolean>(false);
+  const [listName, setListName] = useState<string>('');
 
-  const addNewList = () => {
-    
+  const handleNewList = () => {
+    const newCard = <CardList header={listName} />;
+    addNewList(newCard);
+    setShowInput(false);
+    setListName('');
   }
 
   if (showInput) {
     return (
       <div className='add-list-name'>
         <div>
-          <input type="text" required />
+          <input
+            value={listName}
+            onChange={(e) => setListName(e.target.value)}
+            type="text" required />
         </div>
         <div>
           <button
-            onClick={addNewList}>
+            onClick={handleNewList}>
             Add New List
           </button>
           <button
