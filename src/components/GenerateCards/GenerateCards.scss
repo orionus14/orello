@@ -1,0 +1,14 @@
+.card-item {
+    margin: 8px 0;
+    padding: 6px 4px;
+    background-color: #fff;
+    border-radius: 10px;
+    border: 2px solid #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &:hover {
+        border: 2px solid #bf44f7;
+    }
+}

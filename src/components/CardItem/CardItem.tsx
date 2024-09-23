@@ -6,9 +6,12 @@ interface Header {
 
 const CardItem = ({ header }: Header) => {
   return (
-    <div>
+    <>
       {header}
-    </div>
+      <button className='card-item-button-delete'>
+        Delete
+      </button>
+    </>
   )
 }
 

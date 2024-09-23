@@ -1,0 +1,56 @@
+%button-input {
+    background-color: $background-color-btn;
+    color: $text-color;
+    padding: 6px;
+    font-size: 14px;
+    border-radius: 8px;
+
+    &:hover {
+        background-color: lighten($background-color-btn, 5%);
+    }
+}
+
+.add-item-btn {
+    width: 200px;
+    padding: 8px;
+    border-radius: 12px;
+    background-color: $background-color-btn;
+    color: $text-color;
+    font-size: 14px;
+    font-weight: 500;
+
+    &:hover {
+        background-color: lighten($background-color-btn, 5%);
+    }
+
+    button {
+        @extend %button-input;
+    }
+}
+
+.add-item-name {
+    width: 200px;
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 8px;
+
+    .input-header {
+        display: flex;
+        justify-content: center;
+
+        input {
+            width: 100%;
+            padding: 4px;
+        }
+    }
+
+    .input-buttons {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 6px;
+    }
+
+    button {
+        @extend %button-input;
+    }
+}

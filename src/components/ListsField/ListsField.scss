@@ -1,4 +1,7 @@
 .lists {
+    max-height: calc(100vh - 40px);
     display: flex;
+    align-items: flex-start;
     overflow: auto;
+    margin: 40px 0 0 30px;
 }

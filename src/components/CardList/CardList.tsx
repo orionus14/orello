@@ -23,16 +23,23 @@ const CardList = ({ header }: Header) => {
 
   return (
     <div className='card-list'>
+
       <div className='card-list-header'>
         {header}
+        <button className='card-item-button-delete'>
+          Delete
+        </button>
       </div>
+
       <div className="card-list-items">
         <GenerateCards itemList={itemList} />
       </div>
 
-      <InputButton
-        handleNewItem={handleNewCard}
-        name='Card' />
+      <div className='card-list-button-new'>
+        <InputButton
+          handleNewItem={handleNewCard}
+          name='Card' />
+      </div>
 
     </div>
   )

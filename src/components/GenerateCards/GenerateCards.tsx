@@ -8,7 +8,9 @@ const GenerateCards = ({ itemList }: itemList) => {
     return (
         <>
             {itemList.map((item, index) => (
-                <div key={index}>{item}</div>
+                <div
+                    className='card-item'
+                    key={index}>{item}</div>
             ))}
         </>
     )

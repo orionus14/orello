@@ -20,12 +20,12 @@ const InputButton = ({ handleNewItem, name }: InputButton) => {
     if (showInput) {
         return (
             <div className='add-item-name'>
-                <div>
+                <div className='input-header'>
                     <input
                         onChange={(e) => setItemName(e.target.value)}
                         type="text" />
                 </div>
-                <div>
+                <div className='input-buttons'>
                     <button
                         onClick={addNewItem}>
                         Add New {name}
@@ -39,7 +39,7 @@ const InputButton = ({ handleNewItem, name }: InputButton) => {
         )
     } else {
         return (
-            <div>
+            <div className='add-item'>
                 <button
                     onClick={() => setShowInput(true)}
                     className="add-item-btn">
