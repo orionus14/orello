@@ -5,10 +5,17 @@ interface Header {
 }
 
 const CardItem = ({ header }: Header) => {
+
+  const removeCard = () => {
+
+  }
+
   return (
     <>
       {header}
-      <button className='card-item-button-delete'>
+      <button
+        onClick={removeCard}
+        className='card-item-button-delete'>
         Delete
       </button>
     </>
