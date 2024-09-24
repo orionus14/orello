@@ -3,29 +3,35 @@ import './CardList.scss'
 import GenerateCards from '../GenerateCards/GenerateCards';
 import CardItem from '../CardItem/CardItem';
 import InputButton from '../InputButton/InputButton';
-import { ListContext } from '../ListsField/ListsField';
+import { ListsContext } from '../ListsField/ListsField';
 
 interface Header {
   header: string
+  id: string
 }
 
-const CardList = ({ header }: Header) => {
+const CardList = ({ header, id }: Header) => {
   // itemList - array of Cards
   const [itemList, setItemList] = useState<JSX.Element[]>([]);
-  const cardList = useContext(ListContext);
 
-  const addNewItem = (cardItem: JSX.Element) => {
-    setItemList(prevItem => [...prevItem, cardItem]);
+  const context = useContext(ListsContext);
+  if (!context) {
+    throw new Error('CardList must be used within a ListsProvider');
   }
+  const { lists, setLists } = context;
 
-  const removeList = () => {
-    console.log(cardList);
+  const addNewCard = (cardItem: JSX.Element) => {
+    setItemList(prevItem => [...prevItem, cardItem]);
   }
 
   const handleNewCard = (cardName: string) => {
     const newCard = <CardItem header={cardName} />; // створення нової картки
+    addNewCard(newCard);
+  }
 
-    addNewItem(newCard);
+  const removeList = () => {
+    const newList = lists.filter(item => item.id !== id)
+    setLists(newList);
   }
 
   return (

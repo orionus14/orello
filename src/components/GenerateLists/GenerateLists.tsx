@@ -1,13 +1,13 @@
 import './GenerateLists.scss'
 
-interface cardList {
-  cardList: JSX.Element[];
+interface Lists {
+  lists: JSX.Element[];
 }
 
-const GenerateLists = ({ cardList }: cardList) => {
+const GenerateLists = ({ lists }: Lists) => {
   return (
     <>
-      {cardList.map((item, index) => (
+      {lists.map((item, index) => (
         <div key={index}>{item}</div>
       ))}
     </>

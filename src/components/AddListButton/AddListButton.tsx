@@ -1,17 +1,18 @@
 import './AddListButton.scss'
 import CardList from '../CardList/CardList';
 import InputButton from '../InputButton/InputButton';
+import { v4 as uuidv4 } from 'uuid';
 
-interface addNewList {
-  addNewList: (newCard: JSX.Element) => void;
+interface AddNewList {
+  addNewList: (id: string, newCard: JSX.Element) => void;
 }
 
-const AddListButton = ({ addNewList }: addNewList) => {
+const AddListButton = ({ addNewList }: AddNewList) => {
 
   const handleNewList = (listName: string) => {
-    const newList = <CardList header={listName} />; // створення нового списку
-
-    addNewList(newList);
+    const newListId = uuidv4();
+    const newList = <CardList header={listName} id={newListId} />; // створення нового списку
+    addNewList(newListId, newList);
   }
 
   return (
