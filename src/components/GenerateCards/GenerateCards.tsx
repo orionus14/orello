@@ -1,16 +1,21 @@
 import './GenerateCards.scss'
 
-interface itemList {
-    itemList: JSX.Element[];
+interface CardItem {
+    id: string;
+    element: JSX.Element
 }
 
-const GenerateCards = ({ itemList }: itemList) => {
+interface Cards {
+    cards: CardItem[];
+}
+
+const GenerateCards = ({ cards }: Cards) => {
     return (
         <>
-            {itemList.map((item, index) => (
+            {cards.map(card => (
                 <div
                     className='card-item'
-                    key={index}>{item}</div>
+                    key={card.id}>{card.element}</div>
             ))}
         </>
     )

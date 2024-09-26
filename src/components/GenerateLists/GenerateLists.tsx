@@ -1,14 +1,19 @@
 import './GenerateLists.scss'
 
+interface ListItem {
+  id: string;
+  element: JSX.Element;
+}
+
 interface Lists {
-  lists: JSX.Element[];
+  lists: ListItem[];
 }
 
 const GenerateLists = ({ lists }: Lists) => {
   return (
     <>
-      {lists.map((item, index) => (
-        <div key={index}>{item}</div>
+      {lists.map(list => (
+        <div key={list.id}>{list.element}</div>
       ))}
     </>
   )

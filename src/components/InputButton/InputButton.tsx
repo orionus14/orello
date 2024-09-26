@@ -11,6 +11,9 @@ const InputButton = ({ handleNewItem, name }: InputButton) => {
     const [itemName, setItemName] = useState<string>(''); // значення з інпута
 
     const addNewItem = () => {
+        if(itemName === ''){
+            return;
+        }
         handleNewItem(itemName);
 
         setShowInput(false);
