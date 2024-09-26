@@ -4,15 +4,16 @@ import InputButton from '../InputButton/InputButton';
 import { v4 as uuidv4 } from 'uuid';
 
 interface AddNewList {
-  addNewList: (id: string, newCard: JSX.Element) => void;
+  addNewList: (id: string, name: string, newCard: JSX.Element) => void;
 }
 
 const AddListButton = ({ addNewList }: AddNewList) => {
 
   const handleNewList = (listName: string) => {
     const newListId = uuidv4();
-    const newList = <CardList header={listName} id={newListId} />; // створення нового списку
-    addNewList(newListId, newList);
+    const name = listName;
+    const newList = <CardList name={listName} id={newListId} />; // створення нового списку
+    addNewList(newListId, name, newList);
   }
 
   return (

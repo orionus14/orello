@@ -5,10 +5,12 @@ import './ListsField.scss'
 
 class ListItem {
   id: string;
+  name: string;
   element: JSX.Element
 
-  constructor(id: string, element: JSX.Element) {
+  constructor(id: string, name: string, element: JSX.Element) {
     this.id = id;
+    this.name = name;
     this.element = element;
   }
 }
@@ -24,8 +26,8 @@ const ListsField = () => {
   // lists - array of lists
   const [lists, setLists] = useState<ListItem[]>([]);
 
-  const addNewList = (id: string, listItem: JSX.Element) => {
-    const newList = new ListItem(id, listItem);
+  const addNewList = (id: string, name: string, listItem: JSX.Element) => {
+    const newList = new ListItem(id, name, listItem);
     setLists(prevList => [...prevList, newList]);
   }
 

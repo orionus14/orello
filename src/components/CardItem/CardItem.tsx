@@ -2,12 +2,12 @@ import { useContext } from 'react'
 import './CardItem.scss'
 import { CardsContext } from '../CardList/CardList'
 
-interface Header {
-  header: string
+interface Name {
+  name: string
   id: string
 }
 
-const CardItem = ({ id, header }: Header) => {
+const CardItem = ({ name, id }: Name) => {
   const context = useContext(CardsContext);
   if (!context) {
     throw new Error('Cards must be used within a CardsProvider');
@@ -21,7 +21,7 @@ const CardItem = ({ id, header }: Header) => {
 
   return (
     <>
-      {header}
+      {name}
       <button
         onClick={removeCard}
         className='card-item-button-delete'>

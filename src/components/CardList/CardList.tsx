@@ -8,10 +8,12 @@ import { v4 as uuidv4 } from 'uuid';
 
 class Card {
   id: string;
+  name: string;
   element: JSX.Element
 
-  constructor(id: string, element: JSX.Element) {
+  constructor(id: string, name: string, element: JSX.Element) {
     this.id = id;
+    this.name = name;
     this.element = element;
   }
 }
@@ -23,12 +25,12 @@ interface CardsContextType {
 
 export const CardsContext = createContext<CardsContextType | undefined>(undefined);
 
-interface Header {
-  header: string
+interface Name {
+  name: string
   id: string
 }
 
-const CardList = ({ header, id }: Header) => {
+const CardList = ({ name, id }: Name) => {
   // cards - array of Cards
   const [cards, setCards] = useState<Card[]>([]);
 
@@ -39,13 +41,14 @@ const CardList = ({ header, id }: Header) => {
   const { lists, setLists } = context;
 
   const addNewCard = (id: string, card: JSX.Element) => {
-    const newCard = new Card(id, card);
+    const newCard = new Card(id, name, card);
     setCards(prevItem => [...prevItem, newCard]);
   }
 
   const handleNewCard = (cardName: string) => {
     const newCardId = uuidv4();
-    const newCardItem = <CardItem id={newCardId} header={cardName} />; // створення нової картки
+    const newCardName = cardName;
+    const newCardItem = <CardItem id={newCardId} name={newCardName} />; // створення нової картки
     addNewCard(newCardId, newCardItem);
   }
 
@@ -59,8 +62,8 @@ const CardList = ({ header, id }: Header) => {
     <CardsContext.Provider value={{ cards, setCards }}>
       <div className='card-list'>
 
-        <div className='card-list-header'>
-          {header}
+        <div className='card-list-name'>
+          {name}
           <button
             onClick={removeList}
             className='card-item-button-delete'>
