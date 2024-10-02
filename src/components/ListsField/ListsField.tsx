@@ -1,5 +1,5 @@
 import { createContext, useState } from 'react'
-import { AddListButton } from '../AddListButton';
+import { AddList } from '../AddList';
 import classes from './ListsField.module.scss'
 import { GenerateItems } from '../GenerateItems';
 import { ItemType } from '../../types';
@@ -36,7 +36,7 @@ const ListsField = () => {
     <ListsContext.Provider value={{lists, setLists}}>
       <div className={classes.lists}>
         <GenerateItems items={lists} type={ItemType.list} />
-        <AddListButton addNewList={addNewList} />
+        <AddList addNewList={addNewList} />
       </div>
     </ListsContext.Provider>
   )

@@ -40,17 +40,16 @@ const InputButton: React.FC<IInputButton> = ({ handleNewItem, name }) => {
                 </div>
             </div>
         )
-    } else {
-        return (
-            <div className={classes['add-item']}>
-                <button
-                    onClick={() => setShowInput(true)}
-                    className={classes["add-item-btn"]}>
-                    Add New {name}
-                </button>
-            </div>
-        )
     }
+    return (
+        <div className={classes['add-item']}>
+            <button
+                onClick={() => setShowInput(true)}
+                className={classes["add-item-btn"]}>
+                Add New {name}
+            </button>
+        </div>
+    )
 }
 
 export default InputButton

@@ -1,4 +1,4 @@
-import './AddListButton.module.scss'
+import './AddList.module.scss'
 import { CardList } from '../CardList';
 import { InputButton } from '../InputButton';
 import { v4 as uuidv4 } from 'uuid';
@@ -7,7 +7,7 @@ interface IAddNewList {
   addNewList: (id: string, name: string, newCard: JSX.Element) => void;
 }
 
-const AddListButton: React.FC<IAddNewList> = ({ addNewList }) => {
+const AddList: React.FC<IAddNewList> = ({ addNewList }) => {
 
   const handleCreateList = (listName: string) => {
     const newListId = uuidv4();
@@ -23,4 +23,4 @@ const AddListButton: React.FC<IAddNewList> = ({ addNewList }) => {
   )
 }
 
-export default AddListButton
+export default AddList
