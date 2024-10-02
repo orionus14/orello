@@ -1,7 +1,8 @@
 import { createContext, useState } from 'react'
-import { GenerateLists } from '../GenerateLists';
 import { AddListButton } from '../AddListButton';
 import classes from './ListsField.module.scss'
+import { GenerateItems } from '../GenerateItems';
+import { ItemType } from '../../types';
 
 class ListItem {
   id: string;
@@ -34,7 +35,7 @@ const ListsField = () => {
   return (
     <ListsContext.Provider value={{lists, setLists}}>
       <div className={classes.lists}>
-        <GenerateLists items={lists} />
+        <GenerateItems items={lists} type={ItemType.list} />
         <AddListButton addNewList={addNewList} />
       </div>
     </ListsContext.Provider>

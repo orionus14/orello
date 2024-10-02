@@ -10,6 +10,12 @@ interface Item {
     element: JSX.Element
 }
 
+export enum ItemType {
+    list = 'list',
+    card = 'card'
+}
+
 export interface IItems {
     items: Item[];
+    type: ItemType
 }

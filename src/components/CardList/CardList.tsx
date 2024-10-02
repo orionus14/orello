@@ -1,13 +1,14 @@
 import React from 'react'
 import { useState, useContext, createContext } from 'react'
 import classes from './CardList.module.scss'
-import { GenerateCards } from '../GenerateCards';
 import { CardItem } from '../CardItem';
 import { InputButton } from '../InputButton';
 import { ListsContext } from '../ListsField/ListsField';
 import { v4 as uuidv4 } from 'uuid';
 import { DeleteItemButton } from '../DeleteItemButton';
 import { IName } from '../../types';
+import { GenerateItems } from '../GenerateItems';
+import { ItemType } from '../../types';
 
 class Card {
   id: string;
@@ -66,7 +67,7 @@ const CardList: React.FC<IName> = ({ name, id }) => {
         </div>
 
         <div className={classes['card-list-items']}>
-          <GenerateCards items={cards} />
+          <GenerateItems items={cards} type={ItemType.card} />
         </div>
 
         <div className={classes['card-list-button-new']}>
