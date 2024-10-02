@@ -1,18 +1,11 @@
+import React from 'react'
 import classes from './GenerateCards.module.scss'
+import { IItems } from '../../types';
 
-interface CardItem {
-    id: string;
-    element: JSX.Element
-}
-
-interface Cards {
-    cards: CardItem[];
-}
-
-const GenerateCards = ({ cards }: Cards) => {
+const GenerateCards: React.FC<IItems> = ({ items }) => {
     return (
         <>
-            {cards.map(card => (
+            {items.map(card => (
                 <div
                     className={classes['card-item']}
                     key={card.id}>{card.element}</div>

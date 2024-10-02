@@ -1,18 +1,11 @@
-import './GenerateLists.module.scss'
+import React from 'react';
+import './GenerateLists.module.scss';
+import { IItems } from '../../types';
 
-interface ListItem {
-  id: string;
-  element: JSX.Element;
-}
-
-interface Lists {
-  lists: ListItem[];
-}
-
-const GenerateLists = ({ lists }: Lists) => {
+const GenerateLists: React.FC<IItems> = ({ items }) => {
   return (
     <>
-      {lists.map(list => (
+      {items.map(list => (
         <div key={list.id}>{list.element}</div>
       ))}
     </>

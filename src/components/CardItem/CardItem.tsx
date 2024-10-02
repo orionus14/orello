@@ -1,14 +1,11 @@
+import React from 'react'
 import { useContext } from 'react'
-import './CardItem.scss'
+import './CardItem.module.scss'
 import { CardsContext } from '../CardList/CardList'
 import { DeleteItemButton } from '../DeleteItemButton'
+import { IName } from '../../types'
 
-interface Name {
-  name: string
-  id: string
-}
-
-const CardItem = ({ name, id }: Name) => {
+const CardItem: React.FC<IName> = ({ name, id }) => {
   const context = useContext(CardsContext);
   if (!context) {
     throw new Error('Cards must be used within a CardsProvider');

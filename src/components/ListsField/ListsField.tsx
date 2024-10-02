@@ -34,7 +34,7 @@ const ListsField = () => {
   return (
     <ListsContext.Provider value={{lists, setLists}}>
       <div className={classes.lists}>
-        <GenerateLists lists={lists} />
+        <GenerateLists items={lists} />
         <AddListButton addNewList={addNewList} />
       </div>
     </ListsContext.Provider>

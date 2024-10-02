@@ -1,4 +1,4 @@
-import './AddListButton.scss'
+import './AddListButton.module.scss'
 import { CardList } from '../CardList';
 import { InputButton } from '../InputButton';
 import { v4 as uuidv4 } from 'uuid';

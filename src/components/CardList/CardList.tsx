@@ -1,3 +1,4 @@
+import React from 'react'
 import { useState, useContext, createContext } from 'react'
 import classes from './CardList.module.scss'
 import { GenerateCards } from '../GenerateCards';
@@ -6,6 +7,7 @@ import { InputButton } from '../InputButton';
 import { ListsContext } from '../ListsField/ListsField';
 import { v4 as uuidv4 } from 'uuid';
 import { DeleteItemButton } from '../DeleteItemButton';
+import { IName } from '../../types';
 
 class Card {
   id: string;
@@ -26,12 +28,7 @@ interface CardsContextType {
 
 export const CardsContext = createContext<CardsContextType | undefined>(undefined);
 
-interface Name {
-  name: string
-  id: string
-}
-
-const CardList = ({ name, id }: Name) => {
+const CardList: React.FC<IName> = ({ name, id }) => {
   // cards - array of Cards
   const [cards, setCards] = useState<Card[]>([]);
 
@@ -69,7 +66,7 @@ const CardList = ({ name, id }: Name) => {
         </div>
 
         <div className={classes['card-list-items']}>
-          <GenerateCards cards={cards} />
+          <GenerateCards items={cards} />
         </div>
 
         <div className={classes['card-list-button-new']}>

@@ -1,12 +1,13 @@
+import React from 'react'
 import { useState } from 'react'
 import classes from './InputButton.module.scss'
 
-interface InputButton {
+interface IInputButton {
     handleNewItem: (itemName: string) => void;
     name: string;
 }
 
-const InputButton = ({ handleNewItem, name }: InputButton) => {
+const InputButton: React.FC<IInputButton> = ({ handleNewItem, name }) => {
     const [showInput, setShowInput] = useState<boolean>(false); // перемикання інпута
     const [itemName, setItemName] = useState<string>(''); // значення з інпута
 
