@@ -1,8 +1,10 @@
 import { createContext, useState } from 'react'
-import { AddList } from '../AddList';
 import classes from './ListsField.module.scss'
 import { GenerateItems } from '../GenerateItems';
 import { ItemType } from '../../types';
+import { CardList } from '../CardList';
+import { InputButton } from '../InputButton';
+import { v4 as uuidv4 } from 'uuid';
 
 class ListItem {
   id: string;
@@ -32,11 +34,21 @@ const ListsField = () => {
     setLists(prevList => [...prevList, newList]);
   }
 
+  const handleCreateList = (listName: string) => {
+    const newListId = uuidv4();
+    const name = listName;
+    const newList = <CardList name={listName} id={newListId} />; // створення нового списку
+    addNewList(newListId, name, newList);
+  }
+
   return (
-    <ListsContext.Provider value={{lists, setLists}}>
+    <ListsContext.Provider value={{ lists, setLists }}>
       <div className={classes.lists}>
         <GenerateItems items={lists} type={ItemType.list} />
-        <AddList addNewList={addNewList} />
+        <InputButton
+          handleNewItem={handleCreateList}
+          name='List'
+        />
       </div>
     </ListsContext.Provider>
   )
