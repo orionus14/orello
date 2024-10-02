@@ -1,4 +1,4 @@
-import './GenerateCards.scss'
+import classes from './GenerateCards.module.scss'
 
 interface CardItem {
     id: string;
@@ -14,7 +14,7 @@ const GenerateCards = ({ cards }: Cards) => {
         <>
             {cards.map(card => (
                 <div
-                    className='card-item'
+                    className={classes['card-item']}
                     key={card.id}>{card.element}</div>
             ))}
         </>

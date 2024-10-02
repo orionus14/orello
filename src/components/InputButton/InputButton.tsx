@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import './InputButton.scss'
+import classes from './InputButton.module.scss'
 
 interface InputButton {
     handleNewItem: (itemName: string) => void;
@@ -22,13 +22,13 @@ const InputButton = ({ handleNewItem, name }: InputButton) => {
 
     if (showInput) {
         return (
-            <div className='add-item-name'>
-                <div className='input-header'>
+            <div className={classes['add-item-name']}>
+                <div className={classes['input-header']}>
                     <input
                         onChange={(e) => setItemName(e.target.value)}
                         type="text" />
                 </div>
-                <div className='input-buttons'>
+                <div className={classes['input-buttons']}>
                     <button onClick={addNewItem}>
                         Add New {name}
                     </button>
@@ -41,10 +41,10 @@ const InputButton = ({ handleNewItem, name }: InputButton) => {
         )
     } else {
         return (
-            <div className='add-item'>
+            <div className={classes['add-item']}>
                 <button
                     onClick={() => setShowInput(true)}
-                    className="add-item-btn">
+                    className={classes["add-item-btn"]}>
                     Add New {name}
                 </button>
             </div>

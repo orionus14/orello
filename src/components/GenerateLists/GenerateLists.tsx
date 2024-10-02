@@ -1,4 +1,4 @@
-import './GenerateLists.scss'
+import './GenerateLists.module.scss'
 
 interface ListItem {
   id: string;

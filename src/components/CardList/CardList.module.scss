@@ -7,7 +7,7 @@
     margin: 0 12px;
     width: 240px;
 
-    .card-list-name {
+    &-name {
         font-size: 18px;
         font-weight: 600;
         margin-left: 4px;
@@ -16,27 +16,14 @@
         justify-content: space-between;
     }
 
-    .card-list-items {
+    &-items {
         max-height: calc(100vh - 250px);
         overflow: auto;
     }
 
-    .card-list-button-new {
+    &-button-new {
         margin-top: 12px;
         display: flex;
         justify-content: center;
-    }
-
-    .card-item-button-delete {
-        padding: 4px 8px;
-        border-radius: 12px;
-        background-color: $background-color-btn;
-        color: $text-color;
-        font-size: 14px;
-        font-weight: 500;
-
-        &:hover {
-            background-color: lighten($background-color-btn, 5%);
-        }
     }
 }

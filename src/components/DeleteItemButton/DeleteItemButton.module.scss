@@ -1,0 +1,12 @@
+.item-button-delete {
+    padding: 4px 8px;
+    border-radius: 12px;
+    background-color: $background-color-btn;
+    color: $text-color;
+    font-size: 14px;
+    font-weight: 500;
+
+    &:hover {
+        background-color: lighten($background-color-btn, 5%);
+    }
+}

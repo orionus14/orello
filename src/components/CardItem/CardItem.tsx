@@ -1,6 +1,7 @@
 import { useContext } from 'react'
 import './CardItem.scss'
 import { CardsContext } from '../CardList/CardList'
+import { DeleteItemButton } from '../DeleteItemButton'
 
 interface Name {
   name: string
@@ -22,11 +23,7 @@ const CardItem = ({ name, id }: Name) => {
   return (
     <>
       {name}
-      <button
-        onClick={removeCard}
-        className='card-item-button-delete'>
-        Delete
-      </button>
+      <DeleteItemButton onClick={removeCard} />
     </>
   )
 }

@@ -1,10 +1,11 @@
 import { useState, useContext, createContext } from 'react'
-import './CardList.scss'
+import classes from './CardList.module.scss'
 import { GenerateCards } from '../GenerateCards';
 import { CardItem } from '../CardItem';
 import { InputButton } from '../InputButton';
 import { ListsContext } from '../ListsField/ListsField';
 import { v4 as uuidv4 } from 'uuid';
+import { DeleteItemButton } from '../DeleteItemButton';
 
 class Card {
   id: string;
@@ -60,22 +61,18 @@ const CardList = ({ name, id }: Name) => {
 
   return (
     <CardsContext.Provider value={{ cards, setCards }}>
-      <div className='card-list'>
+      <div className={classes['card-list']}>
 
-        <div className='card-list-name'>
+        <div className={classes['card-list-name']}>
           {name}
-          <button
-            onClick={removeList}
-            className='card-item-button-delete'>
-            Delete
-          </button>
+          <DeleteItemButton onClick={removeList} />
         </div>
 
-        <div className="card-list-items">
+        <div className={classes['card-list-items']}>
           <GenerateCards cards={cards} />
         </div>
 
-        <div className='card-list-button-new'>
+        <div className={classes['card-list-button-new']}>
           <InputButton
             handleNewItem={handleNewCard}
             name='Card' />

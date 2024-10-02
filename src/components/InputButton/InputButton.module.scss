@@ -11,6 +11,7 @@
 }
 
 .add-item-btn {
+    @extend %button-input;
     width: 200px;
     padding: 8px;
     border-radius: 12px;
@@ -21,10 +22,6 @@
 
     &:hover {
         background-color: lighten($background-color-btn, 5%);
-    }
-
-    button {
-        @extend %button-input;
     }
 }
 
