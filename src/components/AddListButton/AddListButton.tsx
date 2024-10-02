@@ -1,15 +1,15 @@
 import './AddListButton.scss'
-import CardList from '../CardList/CardList';
-import InputButton from '../InputButton/InputButton';
+import { CardList } from '../CardList';
+import { InputButton } from '../InputButton';
 import { v4 as uuidv4 } from 'uuid';
 
-interface AddNewList {
+interface IAddNewList {
   addNewList: (id: string, name: string, newCard: JSX.Element) => void;
 }
 
-const AddListButton = ({ addNewList }: AddNewList) => {
+const AddListButton: React.FC<IAddNewList> = ({ addNewList }) => {
 
-  const handleNewList = (listName: string) => {
+  const handleCreateList = (listName: string) => {
     const newListId = uuidv4();
     const name = listName;
     const newList = <CardList name={listName} id={newListId} />; // створення нового списку
@@ -18,7 +18,7 @@ const AddListButton = ({ addNewList }: AddNewList) => {
 
   return (
     <InputButton
-      handleNewItem={handleNewList}
+      handleNewItem={handleCreateList}
       name='List' />
   )
 }

@@ -1,8 +1,8 @@
 import { useState, useContext, createContext } from 'react'
 import './CardList.scss'
-import GenerateCards from '../GenerateCards/GenerateCards';
-import CardItem from '../CardItem/CardItem';
-import InputButton from '../InputButton/InputButton';
+import { GenerateCards } from '../GenerateCards';
+import { CardItem } from '../CardItem';
+import { InputButton } from '../InputButton';
 import { ListsContext } from '../ListsField/ListsField';
 import { v4 as uuidv4 } from 'uuid';
 

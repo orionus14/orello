@@ -1,5 +1,4 @@
-import ListsField from "./components/ListsField/ListsField"
-
+import { ListsField } from "./components/ListsField"
 
 function App() {
   return (

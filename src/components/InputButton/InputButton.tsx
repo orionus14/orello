@@ -11,7 +11,7 @@ const InputButton = ({ handleNewItem, name }: InputButton) => {
     const [itemName, setItemName] = useState<string>(''); // значення з інпута
 
     const addNewItem = () => {
-        if(itemName === ''){
+        if (!itemName) {
             return;
         }
         handleNewItem(itemName);
@@ -29,8 +29,7 @@ const InputButton = ({ handleNewItem, name }: InputButton) => {
                         type="text" />
                 </div>
                 <div className='input-buttons'>
-                    <button
-                        onClick={addNewItem}>
+                    <button onClick={addNewItem}>
                         Add New {name}
                     </button>
                     <button
