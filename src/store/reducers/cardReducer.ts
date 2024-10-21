@@ -1,3 +1,4 @@
+import { removeCardFromLocalStorage } from '../../storage/localStorage';
 import { ADD_CARD, REMOVE_CARD, Card } from '../actions/cardActions';
 
 interface CardState {
@@ -13,7 +14,9 @@ const cardReducer = (state = initialState, action: any) => {
     case ADD_CARD:
       return { ...state, cards: [...state.cards, action.payload] };
     case REMOVE_CARD:
-      return { ...state, cards: state.cards.filter(card => card.id !== action.payload) };
+      removeCardFromLocalStorage(action.payload);
+      return { ...state, cards: state.cards.filter((list: Card) => 
+        list.id !== action.payload) };
     default:
       return state;
   }
