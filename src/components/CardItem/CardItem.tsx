@@ -1,26 +1,20 @@
 import React from 'react'
-import { useContext } from 'react'
 import './CardItem.module.scss'
-import { CardsContext } from '../CardList/CardList'
 import { DeleteItemButton } from '../DeleteItemButton'
 import { IName } from '../../types'
+import { useDispatch } from 'react-redux'
+import { removeCard } from '../../store/actions/cardActions'
 
 const CardItem: React.FC<IName> = ({ name, id }) => {
-  const context = useContext(CardsContext);
-  if (!context) {
-    throw new Error('Cards must be used within a CardsProvider');
-  }
-  const { cards, setCards } = context;
-
-  const removeCard = () => {
-    const newCardList = cards.filter(card => card.id !== id);
-    setCards(newCardList);
+  const dispatch = useDispatch();
+  const handleRemoveCard = () => {
+    dispatch(removeCard(id));
   }
 
   return (
     <>
       {name}
-      <DeleteItemButton onClick={removeCard} />
+      <DeleteItemButton onClick={handleRemoveCard} />
     </>
   )
 }
