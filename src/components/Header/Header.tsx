@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import './Header.scss'
+import classes from './Header.module.scss'
 import { HexColorPicker } from 'react-colorful';
 
 const Header = () => {
@@ -13,27 +13,33 @@ const Header = () => {
     setBackgroundColor(color);
     document.documentElement.style.setProperty('--background-color', color);
   }
-  
+
   useEffect(() => {
     document.documentElement.style.setProperty('--background-color', backgroundColor);
   }, []);
-  
+
   useEffect(() => {
     localStorage.setItem('backgroundColor', backgroundColor);
   }, [backgroundColor]);
 
   return (
-    <header className='header'>
-      <div className='change-background'>
+    <header className={classes['header']}>
+      <a
+        href="#"
+        className={classes['logo-name']}
+      >
+        Orello
+      </a>
+      <div className={classes['change-background']}>
         Change Background
         <div
-          className="change-background-btn"
+          className={classes['change-background-btn']}
           style={{ backgroundColor }}
           onClick={() => setShowColorPicker(!showColorPicker)}
         >
         </div>
         {showColorPicker && (
-          <div className='color-picker'>
+          <div className={classes['color-picker']}>
             <HexColorPicker color={backgroundColor} onChange={handleColorChange} />
           </div>
         )}

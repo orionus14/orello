@@ -1,4 +1,5 @@
 .card-list {
+    @extend .shadow;
     display: flex;
     flex-direction: column;
     padding: 15px;
@@ -14,10 +15,22 @@
         margin-bottom: 12px;
         display: flex;
         justify-content: space-between;
+
+        &-change {
+            width: 60%;
+            padding: 4px;
+        }
+        
+        &-header {
+            width: 60%;
+            overflow-wrap: break-word;
+            cursor: pointer;
+        }
+
     }
 
     &-items {
-        max-height: calc(100vh - 250px);
+        max-height: calc(100vh - 300px);
         overflow: auto;
     }
 

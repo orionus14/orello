@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import classes from './CardList.module.scss'
 import { InputButton } from '../InputButton';
 import { v4 as uuidv4 } from 'uuid';
@@ -8,13 +8,15 @@ import { GenerateItems } from '../GenerateItems';
 import { ItemType } from '../../types';
 import { useDispatch, useSelector } from 'react-redux';
 import { addCard } from '../../store/actions/cardActions';
-import { removeList } from '../../store/actions/listActions';
+import { removeList, renameList } from '../../store/actions/listActions';
 import { selectCardsByListId } from '../../store/selectors/cardSelectors';
 
 const CardList: React.FC<IName> = ({ name, id }) => {
   // cards - array of Cards
   const cards = useSelector(selectCardsByListId(id));
   const dispatch = useDispatch();
+  const [isEditing, setIsEditing] = useState(false);
+  const [newName, setNewName] = useState(name);
 
   const handleNewCard = (cardName: string) => {
     const newCardId = uuidv4();
@@ -29,11 +31,34 @@ const CardList: React.FC<IName> = ({ name, id }) => {
     dispatch(removeList(id));
   }
 
+  const handleRenameList = () => {
+    if (newName.trim()) {
+      dispatch(renameList(id, newName));
+      setIsEditing(false);
+    }
+  }
+
   return (
     <div className={classes['card-list']}>
 
       <div className={classes['card-list-name']}>
-        {name}
+
+        {isEditing ? (
+          <input
+            className={classes['card-list-name-change']}
+            type="text"
+            value={newName}
+            onChange={(e) => setNewName(e.target.value)}
+            onBlur={handleRenameList}
+            onKeyDown={(e) => e.key === 'Enter' && handleRenameList()}
+            autoFocus
+          />
+        ) : (
+          <div className={classes['card-list-name-header']} onClick={() => setIsEditing(true)}>
+            {name}
+          </div>
+        )}
+
         <DeleteItemButton onClick={handleRemoveList} />
       </div>
 

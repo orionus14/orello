@@ -45,7 +45,7 @@ export const removeListFromLocalStorage = (listId: string): void => {
     try {
         const serializedState = localStorage.getItem('reduxState');
         if (serializedState) {
-            const state: RootState = JSON.parse(serializedState) as RootState; 
+            const state: RootState = JSON.parse(serializedState) as RootState;
 
             const updatedLists = state.lists.lists.filter((list: ListItem) => list.id !== listId);
             const updatedCards = state.cards.cards.filter((card: Card) => card.listId !== listId);
@@ -54,11 +54,26 @@ export const removeListFromLocalStorage = (listId: string): void => {
             state.cards.cards = updatedCards;
 
             const newSerializedState = JSON.stringify(state);
-            console.log(newSerializedState);
-            
             localStorage.setItem('reduxState', newSerializedState);
         }
     } catch (e) {
         console.error("Could not remove list from localStorage", e);
     }
 };
+
+export const renameListFromLocalStorage = (listId: string, newName: string): void => {
+    try {
+        const serializedState = localStorage.getItem('reduxState');
+        if (serializedState) {
+            const state: RootState = JSON.parse(serializedState) as RootState;
+            const updatedLists = state.lists.lists.map((list: ListItem) =>
+                list.id === listId ? { ...list, name: newName } : list
+            );
+            state.lists.lists = updatedLists;
+            const newSerializedState = JSON.stringify(state);
+            localStorage.setItem('reduxState', newSerializedState);
+        }
+    } catch (e) {
+        console.error("Could not rename list in localStorage", e);
+    }
+}
