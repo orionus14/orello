@@ -1,0 +1,31 @@
+.header {
+    height: 50px;
+    background-color: gray;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+
+.change-background {
+    display: flex;
+    align-items: center;
+    color: $text-color;
+    margin-right: 30px;
+    color: $text-color;
+    font-weight: 500;
+
+    &-btn {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: var(--background-color);
+        cursor: pointer;
+        margin-left: 10px;
+    }
+}
+
+.color-picker {
+    position: absolute; 
+    right: 30px; 
+    top: 60px;
+}
